@@ -1,18 +1,31 @@
 (function(exports) {
 
-  function newsList() { }
+  function newsList() {
+    this.HTMLtag = document.getElementById('api-title').innerHTML;
+  };
 
   newsList.prototype = {
 
-    display: function(arg) {
-      var array = []; var counter = 0;
-      arg.forEach( element => {
-        array.push('<li id='+counter+'><a href=\''+ element.webUrl +'\'>' + element.webTitle + '</a></li>'); counter++;
+    getData: (api) => {
+      return fetch(api).then(promise => {
+        return promise.json()
+      }).then(data => {
+        return data.response.results;
+      })
+    },
+
+    createList: (arg) => {
+      var counter = 0; var titles= [];
+      arg.map( element => {
+        titles.push('<li id='+counter+'><a href=\''+ element.webUrl +'\'>' + element.webTitle + '</a></li>'); counter++;
       });
-      return '<ul>' + array.join('') + '</ul>'
-    }
+      return '<ul>' + titles.join('') + '</ul>';
+    },
 
+    display: (list) => {
+      var HTMLtag = document.getElementById('api-title');
+      HTMLtag.innerHTML = list;
   }
-
+}
   exports.newsList = newsList
 })(this);

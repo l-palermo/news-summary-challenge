@@ -9,33 +9,35 @@
   }
 
   Controler.prototype = {
-  
-    displayNewsList: function(newslist = new newsList()) {
-      this.request.open('GET', API, true);
-      console.log(this.request.send());
-      this.request.addEventListener('load', function() {
-        var data = JSON.parse(this.response);
-        var arrayArticles = data.response.results
-        var title = document.getElementById('api-title')
-        title.innerHTML = newslist.display(arrayArticles);
-      })
+
+    displayNewsList: (newslist = new newsList(), api = API) => {
+      newslist.getData(api)
+      .then((titles) => {
+        var list = newslist.createList(titles);
+        newslist.display(list);
+      });
     },
 
     displayFullArticle: function() {
       var newslist = document.getElementById('api-title')
-      newslist.addEventListener('click', function(event) {
+      newslist.addEventListener('click', (event) => {
         event.preventDefault();
         var httpLink = event.path[0].href
         var displaytext = new displayText(httpLink)
-        var request = new XMLHttpRequest();
-        console.log(displaytext._URL)
-        request.open('GET', displaytext._URL, true);
-        request.addEventListener('load', function() {
-          var data = JSON.parse(this.response);
+        // var request = new XMLHttpRequest();
+        fetch(displaytext(httplink)._URL).then(promise => {
+          return promise.json();
+        }).then(data => {
           var fullText = document.getElementById('api-body')
           fullText.innerHTML = data.text
         })
-        request.send();
+        // request.open('GET', displaytext._URL, true);
+        // request.addEventListener('load', function() {
+        //   var data = JSON.parse(this.response);
+        //   var fullText = document.getElementById('api-body')
+        //   fullText.innerHTML = data.text
+        // })
+        // request.send();
       })
     }
   }
