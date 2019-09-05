@@ -1,13 +1,11 @@
 (function(exports) {
 
-  function newsList() {
-    this.HTMLtag = document.getElementById('api-title').innerHTML;
-  };
+  function newsList() {};
 
   newsList.prototype = {
 
     getData: (api) => {
-      return fetch(api).then(promise => {
+      fetch(api).then(promise => {
         return promise.json()
       }).then(data => {
         return data.response.results;
@@ -22,8 +20,8 @@
       return '<ul>' + titles.join('') + '</ul>';
     },
 
-    display: (list) => {
-      var HTMLtag = document.getElementById('api-title');
+    display: (list, doc = document) => {
+      var HTMLtag = doc.getElementById('api-title');
       HTMLtag.innerHTML = list;
   }
 }
