@@ -8,10 +8,10 @@ function displayNewsList() {
 }
 displayNewsList();
 
-function displayFullArticle() {
+//function displayFullArticle() {
   
-}
-displayFullArticle();
+//}
+//displayFullArticle();
 
 // function updateDomain() {
 //   console.log('It update the domain');

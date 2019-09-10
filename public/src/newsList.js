@@ -6,8 +6,10 @@
 
     getData: (api) => {
       fetch(api).then(promise => {
+        console.log(promise)
         return promise.json()
       }).then(data => {
+        console.log(data)
         return data.response.results;
       })
     },
