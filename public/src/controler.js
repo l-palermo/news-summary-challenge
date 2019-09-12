@@ -11,8 +11,6 @@
   Controler.prototype = {
 
     displayNewsList: (newslist = new newsList(), api = API) => {
-      console.log(api)
-      console.log(newslist)
       newslist.getData(api)
       .then((titles) => {
         var list = newslist.createList(titles);

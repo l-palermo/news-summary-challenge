@@ -5,11 +5,9 @@
   newsList.prototype = {
 
     getData: (api) => {
-      fetch(api).then(promise => {
-        console.log(promise)
+     return fetch(api).then(promise => {
         return promise.json()
       }).then(data => {
-        console.log(data)
         return data.response.results;
       })
     },
