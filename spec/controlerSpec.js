@@ -2,9 +2,7 @@ function displayNewsList() {
   console.log('it display a list of titles as links');
   var controler = new Controler();
   var newsListM = new newsListMock();
-  var mockdocument = document.createElement('div')
-  mockdocument.setAttribute('class', 'api-title')
-  assert.isTrue(controler.displayNewsList(newsListM, mockdocument) == undefined);
+  assert.isTrue(controler.displayNewsList(newsListM), '<li id=0><a href=\'test\'>test</a></li>');
 }
 displayNewsList();
 
