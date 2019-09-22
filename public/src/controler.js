@@ -18,27 +18,9 @@
       });
     },
 
-    displayFullArticle: function() {
-      var newslist = document.getElementById('api-title')
-      newslist.addEventListener('click', (event) => {
-        event.preventDefault();
-        var httpLink = event.path[0].href
-        var displaytext = new displayText(httpLink)
-        // var request = new XMLHttpRequest();
-        fetch(displaytext(httplink)._URL).then(promise => {
-          return promise.json();
-        }).then(data => {
-          var fullText = document.getElementById('api-body')
-          fullText.innerHTML = data.text
-        })
-        // request.open('GET', displaytext._URL, true);
-        // request.addEventListener('load', function() {
-        //   var data = JSON.parse(this.response);
-        //   var fullText = document.getElementById('api-body')
-        //   fullText.innerHTML = data.text
-        // })
-        // request.send();
-      })
+    displaySummary: function() {
+      var summary = new Summary();
+      summary.display();
     }
   }
   exports.Controler = Controler;

@@ -15,13 +15,10 @@ function createlist() {
 createlist();
 
 function display() {
-  console.log('#display dispaly the titles on the page');
+  console.log('#display the titles on the page');
   var newslist = new newsList();
-  var mockdocument = document.createElement('div')
-  mockdocument.id = 'api-title'
-  console.log(mockdocument)
+  console.log(newslist)
   var list = '<ul><li id=0><a href=\'test\'>test</a></li></ul>'
-  console.log(newslist.display(list, mockdocument))
-  //assert.isTrue(newslist.display(list, mockdocument), )
+  console.log(newslist.display(list), true)
 }
-display();
+// display();

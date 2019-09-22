@@ -1,9 +1,5 @@
-console.log('ciao')
-
-  window.onload = function() {
-    // connect to the API and display the news on the page
+window.onload = function() {
     var controler = new Controler();
-    // controler.updateDom();
     controler.displayNewsList();
-    controler.displayFullArticle();
+    controler.displaySummary();
   }

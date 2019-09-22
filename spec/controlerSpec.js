@@ -6,9 +6,9 @@ function displayNewsList() {
 }
 displayNewsList();
 
-//function displayFullArticle() {
+function displayFullArticle() {
   
-//}
+}
 //displayFullArticle();
 
 // function updateDomain() {

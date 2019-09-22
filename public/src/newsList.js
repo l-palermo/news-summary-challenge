@@ -20,8 +20,8 @@
       return '<ul>' + titles.join('') + '</ul>';
     },
 
-    display: (list, doc = document) => {
-      var HTMLtag = doc.getElementById('api-title');
+    display: (list) => {
+      var HTMLtag = document.getElementById("api-title");
       HTMLtag.innerHTML = list;
   }
 }
